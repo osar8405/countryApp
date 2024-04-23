@@ -1,7 +1,8 @@
 <hr>
 <div class="row">
     <div class="col">
-        <shared-search-box placeHolder="este es un place holder"></shared-search-box>
+        <shared-search-box (onValue)="searchByCapital($event)"
+            placeHolder="Buscar por capital"></shared-search-box>
     </div>
 </div>
 
