@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, delay, map, of } from 'rxjs';
-import { Country } from '../interfaces/country';
+import { Country } from '../interfaces/country.interface';
+import { CacheStore } from '../interfaces/cache-store.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
 
     private apiURL: string = 'https://restcountries.com/v3.1';
+    public cahceStore: CacheStore = {
+        byCapital: {term: '', countries: []},
+        byCountries: {term: '', countries: []},
+        byRegion: {region: '', countries: []},
+    }
 
     constructor(private http: HttpClient) { }
 
